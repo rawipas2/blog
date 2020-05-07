@@ -29,7 +29,7 @@ router.post('/', (req, res) => {
 
 // Put (update data)
 router.put ('/:_id' , (req, res) => {
-    blogmodel.findByIDAndUpdate(req.params._id, req.body, (err, data) => {
+    blogmodel.findByIdAndUpdate(req.params._id, req.body, (err, data) => {
         if (err) return res.status(400).send(err)
         res.status(200).send('[update seccess]')
     })
@@ -37,10 +37,10 @@ router.put ('/:_id' , (req, res) => {
 
 // Delete ( 1 data)
 router.delete('/:_id', (req, res) => {
-    blogmodel.findByIDAndDelete(req.params._id), (err, data) => {
+    blogmodel.findByIdAndRemove(req.params._id, (err, data) => {
         if (err) return res.status(400).send(err)
         res.status(200).send('[delete seccess]')
-    }
+    })
 })
 
 module.exports = router

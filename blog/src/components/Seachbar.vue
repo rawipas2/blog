@@ -1,0 +1,10 @@
+<template>
+      <v-card>
+        <v-card-title>
+           <v-text-field
+            single-line
+            hide-details
+          />
+        </v-card-title>
+      </v-card>
+</template>

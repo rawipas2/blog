@@ -1,9 +1,9 @@
 <template>
   <v-app
   >
-    <div id="nav">
-      <router-link to="/">HOME</router-link> |
-      <router-link to="/listblog">BLOG</router-link>
+    <div id='nav'>
+      <router-link to='/'>HOME</router-link> |
+      <router-link to='/listblog'>BLOG</router-link>
     </div>
     <router-view/>
   </v-app>
@@ -17,7 +17,7 @@ export default {
 </script>
 
 
-<style lang="scss">
+<style lang='scss'>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
