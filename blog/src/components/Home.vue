@@ -4,7 +4,7 @@
       class="mx-auto"
       width="344"
     >
-    <v-list-item three-line>
+    <v-list-item>
       <v-list-item-content>
          <div class="overline mb-4">POST BLOG</div>
             <v-form

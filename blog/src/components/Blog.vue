@@ -5,18 +5,20 @@
         max-width= '400'
         class= 'mx-auto'
       >
+      <v-list-item>
+      <v-list-item-content>
       <div class="overline">SEACH BLOG</div>
         <v-card-title>
- 
            <v-text-field
-            class="overline mb-4"
             v-model= 'seach'
-            label = 'Seach'
-            single-line
-            hide-details
+            label = 'Seach Hashtag'
           />
         </v-card-title>
-       
+       </v-list-item-content>  
+    </v-list-item>
+
+
+<!-- Menu -->
       </v-card>
       <p/>
         <v-btn
@@ -27,7 +29,7 @@
         ||
        <v-btn
           text
-          @click= "show = !show"
+          @click= 'show = !show'
           >
           Show Menu
         </v-btn>
@@ -37,8 +39,8 @@
             <v-col
               v-for= '(blogs, index) in $store.getters.blog'
               :key= 'index'
-              :items="blog"
-              :search="search"
+              :items= 'blog'
+              :search= 'search'
               cols= '12'
             >
               <v-card
@@ -46,7 +48,7 @@
                 class= 'mx-auto'
               >
 
-              <v-card-title class="headline">{{blogs.name}}</v-card-title>
+              <v-card-title class='headline'>{{blogs.name}}</v-card-title>
               <v-card-subtitle>{{blogs.description}}</v-card-subtitle>
 
 <!-- Option Blog -->
@@ -55,13 +57,15 @@
                       <v-divider/>
                       
                       <v-text-field
-                        v-model = "description"
-                        :err-messages = "descriptionErrors"
-                        :rules="descriptionRules"
-                        label = "New description"
+                        v-model = 'description'
+                        :err-messages = 'descriptionErrors'
+                        :rules='descriptionRules'
+                        :search='search'
+                        label = 'New Description'
                         requirad
                       />
 
+<div class="text-center" cols="12" sm="4">
 <!-- Edit -->
                      <v-btn
                       class= 'mr-4'
@@ -71,12 +75,15 @@
                       </v-btn>
 <!-- Delete -->
                       <v-btn
-                      class= 'mr-4'
+                      class= 'error mr-4'
                       text
+                      small
                       @click='deleteBlog(index,blogs._id)'
                       >
                       DELETE
                       </v-btn>
+
+                      </div>
                     </div>
                 </v-expand-transition>
               </v-card>
@@ -92,8 +99,8 @@ import { mapState } from 'vuex'
 export default {
   name: 'blog',
   data: () => ({
-      show: false,
-      edit: [],
+      search: '',
+      show: false
   }),
 
   methods: {
@@ -109,11 +116,9 @@ export default {
    editBlog(index, _id) {
      let payload = { 
        index: index, 
-       _id: _id, 
-      //  description: blogs.description,
-      //  hashtag: blogs.hashtag
+       _id: _id
        };
-      this.$store.dispatch("editBlog", payload).then(this.closeEdit());
+      this.$store.dispatch('editBlog', payload).then(this.closeEdit());
     },
 
 // Reload data 
