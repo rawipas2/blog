@@ -30,7 +30,7 @@ router.post('/', (req, res) => {
 // Put (update data)
 router.put ('/:_id' , (req, res) => {
     blogmodel.findByIdAndUpdate(req.params._id, req.body, (err, data) => {
-        if (err) return res.status(400).send(err)
+        if (err) return res.status(400).send(err);
         res.status(200).send('[update seccess]')
     })
 })

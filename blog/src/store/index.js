@@ -19,6 +19,11 @@ export default new Vuex.Store({
     deleteBlog(state, {index}) {
       state.blog.splice(index, 1)
     },
+    editBlog(state, { payload }){
+        state.blog[payload.index].name = payload.name
+        state.blog[payload.index].price = payload.price
+      
+    },
     set_post ( state, blog){
       state.blog = blog
     }
@@ -27,30 +32,27 @@ export default new Vuex.Store({
   
 
   actions: {
-    // async fetchBlog({ commit }) {
-    //   await Axios.get(mongo_api)
-    //     .then(res => commit("fetchBlog", { res }))
-    //     .catch(err => alert(err));
-    // },
+
     async addBlog({ commit }, payload) {
       await Axios.post(mongo_api, payload)
-        .then(() => commit("addBlog", { payload }))
+        .then(() => commit('addBlog', { payload }))
         .catch(err => alert(err));
-      // commit('addBlog', { payload });
     },
+
+    async editBlog({ commit }, payload){
+      await Axios.put(mongo_api + payload._id, payload)
+        .then(() => commit("editBlog", { payload }))
+        .catch(err => alert(err));
+    },
+
     async deleteBlog({ commit }, payload) {
       alert(payload._id);
       await Axios.delete(mongo_api + payload._id)
-        .then(() => commit("deleteBlog", { payload }))
+        .then(() => commit('deleteBlog', { payload }))
         .catch(err => alert(err));
     },
-    // async deleteBlog({ commit }, payload) {
-    //   alert(payload._id);
-    //   await Axios.delete(mongo_api + payload._id)
-    //     .then(() => commit("editFood", { payload }))
-    //     .catch(err => alert(err));
-      // commit('deleteBlog', {index} )
-    loadBlog({ commit }){
+
+    async loadBlog({ commit }){
         Axios.get(mongo_api)
         .then( data => {
           console.log('Data: ',data.data)

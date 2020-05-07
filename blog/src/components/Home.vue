@@ -54,29 +54,7 @@
 
 <p/><p/>
 <!-- Show Blog -->
-  <v-container>
-      <v-row dense>
-        <v-col
-          v-for="(blogs, index) in $store.getters.blog"
-          :key="index"
-          cols="12"
-        >
-          <v-card
-            width="400"
-            class="mx-auto"
-          >
-            <div class="d-flex flex-no-wrap justify-space-between">
-              <div>
-                
-                <v-card-title>#{{blogs.hashtag}}</v-card-title>
-                <v-card-subtitle>{{blogs.description}} </v-card-subtitle>
-                
-              </div>
-            </div>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
+  
 </v-app>
 </template>
 
