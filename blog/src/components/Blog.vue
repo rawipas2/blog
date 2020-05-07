@@ -53,19 +53,12 @@
                 <v-expand-transition >
                     <div v-show='show'>
                       <v-divider/>
-                      <v-text-field
-                        v-model = "name"
-                        :err-messages = "nameErrors"
-                        :rules="nameRules"
-                        label = "Name"
-                        requirad
-                      />
                       
                       <v-text-field
                         v-model = "description"
                         :err-messages = "descriptionErrors"
                         :rules="descriptionRules"
-                        label = "Description"
+                        label = "New description"
                         requirad
                       />
 
@@ -74,7 +67,7 @@
                       class= 'mr-4'
                       text
                       >
-                      SAVE EDIT
+                      SAVE
                       </v-btn>
 <!-- Delete -->
                       <v-btn
