@@ -1,6 +1,6 @@
 var mongoose = require('mongoose')
 var blogSchema = mongoose.Schema({
-    // name: { type: String},
+    name: { type: String},
     description: { type: String},
     hashtag: { type: String }
 },

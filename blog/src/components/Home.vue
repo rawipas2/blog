@@ -13,10 +13,10 @@
             >
               
               <v-text-field
-                v-model = "hashtag"
-                :err-messages = "hashtagErrors"
-                :rules="hashtagRules"
-                label = "#Hashtag"
+                v-model = "name"
+                :err-messages = "nameErrors"
+                :rules="nameRules"
+                label = "Name"
                 requirad
               
               />
@@ -62,15 +62,15 @@
 export default {
   data: () => ({
     description: '',
-    hashtag: '',
+    name: '',
 
 // Required
     
     descriptionRules: [
         v => !!v || 'Description is required'
       ],
-    hashtagRules: [
-        v => !!v || 'Hashtag: is required'
+    nameRules: [
+        v => !!v || 'Name: is required'
       ],
   }),
 
@@ -80,7 +80,7 @@ export default {
       
       let payload = { 
           description: this.description,
-          hashtag: this.hashtag
+          name: this.name
         }
         this.$store.dispatch("addBlog", payload)
         this.$refs.form.reset()

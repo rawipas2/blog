@@ -46,7 +46,7 @@
                 class= 'mx-auto'
               >
 
-              <v-card-title class="headline">#{{blogs.hashtag}}</v-card-title>
+              <v-card-title class="headline">{{blogs.name}}</v-card-title>
               <v-card-subtitle>{{blogs.description}}</v-card-subtitle>
 
 <!-- Option Blog -->
@@ -54,10 +54,10 @@
                     <div v-show='show'>
                       <v-divider/>
                       <v-text-field
-                        v-model = "hashtag"
-                        :err-messages = "hashtagErrors"
-                        :rules="hashtagRules"
-                        label = "#Hashtag"
+                        v-model = "name"
+                        :err-messages = "nameErrors"
+                        :rules="nameRules"
+                        label = "Name"
                         requirad
                       />
                       
