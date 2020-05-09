@@ -20,9 +20,8 @@ export default new Vuex.Store({
       state.blog.splice(index, 1)
     },
     editBlog(state, { payload }){
-        state.blog[payload.index].name = payload.name
-        state.blog[payload.index].price = payload.price
-      
+        state.blog[payload.index].description = payload.description
+        console.log(payload.description)
     },
     set_post ( state, blog){
       state.blog = blog

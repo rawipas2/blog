@@ -16,7 +16,7 @@
                 v-model = "name"
                 :err-messages = "nameErrors"
                 :rules="nameRules"
-                label = "Name"
+                label = "Title"
                 requirad
               
               />

@@ -64,13 +64,13 @@
                         label = 'New Description'
                         requirad
                       />
-
+                    
 <div class="text-center" cols="12" sm="4">
 <!-- Edit -->
                      <v-btn
                       class= 'mr-4'
                       text
-                      >
+                      @click='editBlog(index,blogs._id)' >
                       SAVE
                       </v-btn>
 <!-- Delete -->
@@ -89,7 +89,6 @@
               </v-card>
             </v-col>
           </v-row>
-      
     </v-container>
 </v-app>
 </template>
@@ -107,20 +106,22 @@ export default {
 // Delete
     deleteBlog(index, _id) {
       let payload = { index: index, _id: _id };
+      this.show = false
       this.$store.dispatch('deleteBlog', payload)
       console.log('deleteBlog')
-    }
-  },
-
+    },
 // Edit
    editBlog(index, _id) {
      let payload = { 
        index: index, 
-       _id: _id
+       _id: _id,
+       description: this.description
        };
+      this.show = false
       this.$store.dispatch('editBlog', payload).then(this.closeEdit());
-    },
-
+      console.log('edit')
+    }
+ },
 // Reload data 
   mounted() {
      this.$store.dispatch('loadBlog')
