@@ -30,6 +30,7 @@
        <v-btn
           text
           @click= 'show = !show'
+          id="menu"
           >
           Show Menu
         </v-btn>
@@ -49,7 +50,7 @@
               >
 
               <v-card-title class='headline'>{{blogs.name}}</v-card-title>
-              <v-card-subtitle>{{blogs.description}}</v-card-subtitle>
+              <v-card-subtitle :id="`body-${blogs._id}`">{{blogs.description}}</v-card-subtitle>
 
 <!-- Option Blog -->
                 <v-expand-transition >
@@ -70,6 +71,7 @@
                      <v-btn
                       class= 'mr-4'
                       text
+                      :id="`save-${blogs._id}`"
                       @click='editBlog(index,blogs._id)' >
                       SAVE
                       </v-btn>
@@ -78,6 +80,7 @@
                       class= 'error mr-4'
                       text
                       small
+                      :id="`delete-${blogs._id}`"                      
                       @click='deleteBlog(index,blogs._id)'
                       >
                       DELETE

@@ -2,8 +2,8 @@
   <v-app
   >
     <div id='nav'>
-      <router-link to='/'>HOME</router-link> |
-      <router-link to='/listblog'>BLOG</router-link>
+      <router-link id="Home" to='/'>HOME</router-link> |
+      <router-link id="Blog" to='/listblog'>BLOG</router-link>
     </div>
     <router-view/>
   </v-app>
