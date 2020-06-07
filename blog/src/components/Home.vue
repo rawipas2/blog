@@ -35,6 +35,7 @@
                 class="mr-4"
                 text
                 @click="addBlog"
+                id="submit"
                 >
                 submit
                 </v-btn>
@@ -42,6 +43,7 @@
                   class="mr-4"
                   text
                   @click="reset"
+                  id="reset"
                 >
                 reset
                 </v-btn>
